@@ -1,0 +1,21 @@
+{
+  "name": "week-17",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000w\u0000e\u0000e\u0000k\u00001\u00007\u0000-\u0000r\u0000e\u0000a\u0000c\u0000t\u0000",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "build parcel index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "browserslist": [
+    "last 2 version"
+  ]
+}

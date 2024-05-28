@@ -4,33 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div id="root">
-        Not Rendered
-    </div>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script>
-        const heading = React.createElement(
-        'h1',
-        {
-            id:'title',
-        },
-        "hello everyone"
-    );
-    const heading2 = React.createElement(
-        'h2',{},'heading 2'
-    );
-    const container = React.createElement(
-        'div',
-        {
-            id:"container"
-        },
-        [heading,heading2]
-    )
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(container);
-    </script>
+    <div id="root">Not Rendered</div>
+    <script type="module" src="./App.js"></script>
 </body>
 </html>
