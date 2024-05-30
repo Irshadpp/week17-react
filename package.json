@@ -13,7 +13,8 @@
     "parcel": "^2.12.0",
     "process": "^0.11.10",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1"
   },
   "browserslist": [
     "last 2 version"

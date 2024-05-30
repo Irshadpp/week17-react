@@ -1,7 +1,6 @@
 import { IMAGE_PATH_URL } from "../utils/constants";
 
 const ResCard = (restaurantData) =>{
-    console.log(restaurantData?.resData?.info);
     const {name,cuisines,cloudinaryImageId,costForTwo,deliveryTime,avgRating } = restaurantData?.resData?.info
     return (
         <div className="res-container">

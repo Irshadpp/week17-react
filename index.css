@@ -59,4 +59,23 @@
 
 .filter-btn{
     margin: 20px;
+    display: flex;
+}
+
+.dummyCard-containter{
+    margin-top: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.dummyCard{
+    width: 230px;
+    height: 320px;
+    background-color: rgba(235, 239, 238, 0.802);
+    margin: 10px;
+    flex-direction: column;
+    flex: 1 0 15%;
+    box-sizing: border-box;
 }
