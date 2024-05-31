@@ -1,13 +1,13 @@
 import ResCard from "./ResCard";
 import {useState, useEffect} from "react";
 import Shimmer from "./shimmer";
-
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () =>{
     const [listOfRes, setListOfRes] = useState([])
     const [searchName, setSearchName] = useState("")
     const [filteredRestaurants, setFilteredRestaurants] = useState([])
-    console.log(listOfRes)
 
     useEffect(()=>{
         fetchData();
@@ -20,6 +20,9 @@ const Body = () =>{
         setListOfRes(listData)
         setFilteredRestaurants(listData)
     }
+
+    if(!useOnlineStatus()) return <h1>Looks like your Internet connection lost, Please check....</h1>
+
     if(listOfRes.length === 0){
 
         return (
@@ -49,7 +52,7 @@ const Body = () =>{
             <div className="card-container">
                 {
                     filteredRestaurants.map((restaurent)=>(
-                        <ResCard key={restaurent.info.id} resData = {restaurent}/>
+                       <Link to={"/restaurantId/"+restaurent.info.id} key={restaurent.info.id} ><ResCard resData = {restaurent}/></Link>
                     ))
                 }
             </div>

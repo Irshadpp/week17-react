@@ -53,7 +53,7 @@
 .card-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -78,4 +78,9 @@
     flex-direction: column;
     flex: 1 0 15%;
     box-sizing: border-box;
+}
+
+.user-card{
+    padding: 10px;
+    border: 1px solid black;
 }
