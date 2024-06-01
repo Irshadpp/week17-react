@@ -1,4 +1,4 @@
-import ResCard from "./ResCard";
+import ResCard, {promotedResCard} from "./ResCard";
 import {useState, useEffect} from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
@@ -7,7 +7,8 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () =>{
     const [listOfRes, setListOfRes] = useState([])
     const [searchName, setSearchName] = useState("")
-    const [filteredRestaurants, setFilteredRestaurants] = useState([])
+    const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+    const PromotedCard = promotedResCard(ResCard)
 
     useEffect(()=>{
         fetchData();
@@ -31,28 +32,38 @@ const Body = () =>{
     }
     return (
         <div className="body-container">
-            <div className="filter-btn">
-                <div className="search">
-                <input type="text" className="search-inp" value={searchName}
+            <div className="flex">
+                <div className="m-10">
+                <input type="text" className="px-6 py-[3px] border border-solid border-black" value={searchName}
                 onChange={(e)=>{
                     setSearchName(e.target.value);
                 }}
                 />
-                <button onClick={()=>{
+                <button className="mx-2 bg-green-200 px-3 py-[5px] rounded-sm"
+                 onClick={()=>{
                     const filteredList = listOfRes.filter(res => res.info.name.toLowerCase().includes(searchName.toLowerCase()));
                     setFilteredRestaurants(filteredList);
                 }}
                 >Search</button>
                 </div>
-                <button onClick={()=>{
+                <div className="my-10">
+                <button className="py-[5px] px-3 bg-green-200 rounded-sm"
+                 onClick={()=>{
                     const filteredList = listOfRes.filter(res => res.info.avgRating > 4.2);
                     setFilteredRestaurants(filteredList);
                 }}>Filter top rated restorent</button>
+                </div>
             </div>
-            <div className="card-container">
+            <div className="flex flex-wrap justify-center">
                 {
                     filteredRestaurants.map((restaurent)=>(
-                       <Link to={"/restaurantId/"+restaurent.info.id} key={restaurent.info.id} ><ResCard resData = {restaurent}/></Link>
+                       <Link to={"/restaurantId/"+restaurent.info.id} key={restaurent.info.id} >
+                        {
+                            restaurent.info.veg ? ( <PromotedCard resData={restaurent} />) : 
+                            (<ResCard resData = {restaurent}/>)
+                        }
+                        
+                        </Link>
                     ))
                 }
             </div>
