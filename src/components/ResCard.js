@@ -1,6 +1,9 @@
 import { IMAGE_PATH_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 
 const ResCard = (restaurantData) =>{
+    const {loggedInUser} = useContext(UserContext)
     const {name,cuisines,cloudinaryImageId,costForTwo,deliveryTime,avgRating } = restaurantData?.resData?.info
     return (
         <div className="w-[230px] bg-gray-200 items-center flex flex-col m-2 rounded-lg">
@@ -11,6 +14,7 @@ const ResCard = (restaurantData) =>{
             <h5>{costForTwo}</h5>
             <h5>{avgRating} stars</h5>
             <h5>{deliveryTime} minutes</h5>
+            <h5>{loggedInUser}</h5>
             </div>
         </div>
     )

@@ -1,14 +1,16 @@
 import ResCard, {promotedResCard} from "./ResCard";
-import {useState, useEffect} from "react";
+import {useState, useEffect, useContext} from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () =>{
-    const [listOfRes, setListOfRes] = useState([])
-    const [searchName, setSearchName] = useState("")
+    const [listOfRes, setListOfRes] = useState([]);
+    const [searchName, setSearchName] = useState("");
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const PromotedCard = promotedResCard(ResCard)
+    const { loggedInUser, setUserName} = useContext(UserContext)
 
     useEffect(()=>{
         fetchData();
@@ -52,6 +54,13 @@ const Body = () =>{
                     const filteredList = listOfRes.filter(res => res.info.avgRating > 4.2);
                     setFilteredRestaurants(filteredList);
                 }}>Filter top rated restorent</button>
+                </div>
+                <div className="my-10">
+                <label htmlFor="" className="mx-2">Change User Name:</label>
+                <input type="text" className="border border-black"
+                onChange={(e)=>setUserName(e.target.value)}
+                value={loggedInUser}
+                />
                 </div>
             </div>
             <div className="flex flex-wrap justify-center">
