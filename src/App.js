@@ -8,6 +8,9 @@ import Menu from "./components/Menu";
 import Error from "./components/Error";
 import UserContext from "./utils/UserContext";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 
 // // const heading = React.createElement("h1", { id: "title" }, "Hello world");
@@ -56,10 +59,12 @@ const AppLayout = () =>{
 
     return (
         <div>
+        <Provider store={appStore}>
             <UserContext.Provider value={{loggedInUser:userName, setUserName}}>
             <Header />
             <Outlet />
             </UserContext.Provider>
+        </Provider>
         </div>
     )
 }
@@ -84,6 +89,10 @@ const appRouter = createBrowserRouter([
            {
             path: "/restaurantId/:resId",
            element: <Menu />
+        },
+        {
+            path: "/cart",
+            element: <Cart/>
         }
         ],
         errorElement: <Error />
