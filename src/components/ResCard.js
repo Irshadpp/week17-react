@@ -2,11 +2,11 @@ import { IMAGE_PATH_URL } from "../utils/constants";
 import UserContext from "../utils/UserContext";
 import { useContext } from "react";
 
-const ResCard = (restaurantData) =>{
+const ResCard = (restaurantData) =>{    
     const {loggedInUser} = useContext(UserContext)
     const {name,cuisines,cloudinaryImageId,costForTwo,deliveryTime,avgRating } = restaurantData?.resData?.info
     return (
-        <div className="w-[230px] bg-gray-200 items-center flex flex-col m-2 rounded-lg">
+        <div data-testid="resCard" className="w-[230px] bg-gray-200 items-center flex flex-col m-2 rounded-lg">
             <img className="h-[200px] w-[210px] mt-2 rounded-lg" src={IMAGE_PATH_URL + cloudinaryImageId} alt="" />
             <div className="">
                  <h4>{name}</h4>

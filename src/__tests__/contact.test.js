@@ -5,6 +5,22 @@ import "@testing-library/jest-dom"
 
 describe("Contact page test cases", ()=>{
 
+    // beforeAll(()=>{
+    //     console.log("Before all")
+    // });
+
+    // beforeEach(()=>{
+    //     console.log("Before each");
+    // });
+
+    // afterAll(()=>{
+    //     console.log("After all");
+    // });
+
+    // afterEach(()=>{
+    //     console.log("After Each");
+    // });
+
     test("Contact should render", ()=>{
     render(<Contact/>);
 

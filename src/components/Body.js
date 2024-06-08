@@ -36,7 +36,7 @@ const Body = () =>{
         <div className="body-container">
             <div className="flex">
                 <div className="m-10">
-                <input type="text" className="px-6 py-[3px] border border-solid border-black" value={searchName}
+                <input type="text" data-testid="searchInput" className="px-6 py-[3px] border border-solid border-black" value={searchName}
                 onChange={(e)=>{
                     setSearchName(e.target.value);
                 }}
